@@ -1,7 +1,7 @@
-# SplashPatch
-So you've updated Photoshop 2020 and are ready to open it and ***oh my god why is it so bright my eyes ow they burn ouch owwie ow why is it so white?*** and then the splash screen closes to the same dark Photoshop look.
+***Please note: SplashPatch is currently in pre-release, both the Engine and Wizard may have many bugs, It is currently stable enough to use however mileage may vary***
 
-***Please note: SplashPatch is currently in pre-release, both the Engine and Wizard may have many bugs, It is currently stable enough to use however mileage may vary.***
+## SplashPatch
+So you've updated Photoshop 2020 and are ready to open it and ***oh my god why is it so bright my eyes ow they burn ouch owwie ow why is it so white?*** and then the splash screen closes to the same dark Photoshop look.
 ## Save it
 SplashPatch can automatically save splash images to PNG, making it much easier to keep, edit and share the currently applied splash image. 
 ## Change it back
