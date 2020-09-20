@@ -22,7 +22,7 @@ SplashPatch can change the splash images to whatever image you want, be it your 
 - [Resource Hacker by Angus Johnson](http://www.angusj.com/resourcehacker/) is used for `dll` and `exe` patching until SplashPatchEngine gets the native functionallity. SplashPatch should get Resource Hacker from the Publisher automatically upon launch however it will need to be added with any derivatives using SplashPatchEngine.
 
 ## Disclaimer
-***SplashPatch does not nor will it ever modify programs to allow "Hacked" or "Cracked" versions for free, it solely modifies legitimately acquired activated and trial versions.*** SplashPatch does not support beta releases.
+***SplashPatch does not nor will it ever modify programs illegally to allow "Hacked" or "Cracked" versions for free, it solely modifies legitimately acquired activated and trial versions.*** SplashPatch does not support beta Creative Cloud releases.
 
 SplashPatch will must at least replace a PNG, modify existing resource archives, to even modifying important `.dll` and `.exe` files required for the programs to launch. Although SplashPatch makes an effort to back up files prior to modification, if failed it may require the program to be reinstalled, ***please remember to backup your copy, this is especially important with slow internet as downloads can take several hours.***
 
