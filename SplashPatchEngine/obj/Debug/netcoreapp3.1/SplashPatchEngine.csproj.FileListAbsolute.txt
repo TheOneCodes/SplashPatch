@@ -11,3 +11,14 @@ C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Debug\netcoreapp3.1\Splas
 C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Debug\netcoreapp3.1\SplashPatchEngine.dll
 C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Debug\netcoreapp3.1\SplashPatchEngine.pdb
 C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Debug\netcoreapp3.1\SplashPatchEngine.csprojAssemblyReference.cache
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Debug\netcoreapp3.1\SplashPatchEngine.csprojAssemblyReference.cache
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Debug\netcoreapp3.1\SplashPatchEngine.AssemblyInfoInputs.cache
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Debug\netcoreapp3.1\SplashPatchEngine.AssemblyInfo.cs
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Debug\netcoreapp3.1\SplashPatchEngine.csproj.CoreCompileInputs.cache
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Debug\netcoreapp3.1\SplashPatchEngine.dll
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Debug\netcoreapp3.1\SplashPatchEngine.pdb
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\bin\Debug\netcoreapp3.1\SplashPatchEngine.deps.json
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\bin\Debug\netcoreapp3.1\SplashPatchEngine.dll
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\bin\Debug\netcoreapp3.1\SplashPatchEngine.pdb
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\bin\Debug\netcoreapp3.1\PShop.dll
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Debug\netcoreapp3.1\SplashPatchEngine.csproj.CopyComplete
