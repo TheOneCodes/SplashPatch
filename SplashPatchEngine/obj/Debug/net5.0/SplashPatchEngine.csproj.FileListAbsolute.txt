@@ -1,0 +1,14 @@
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\bin\Debug\net5.0\SplashPatchEngine.deps.json
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\bin\Debug\net5.0\SplashPatchEngine.dll
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\bin\Debug\net5.0\SplashPatchEngine.pdb
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\bin\Debug\net5.0\Microsoft.AspNetCore.StaticFiles.dll
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\bin\Debug\net5.0\PShop.dll
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\bin\Debug\net5.0\Microsoft.AspNetCore.StaticFiles.xml
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Debug\net5.0\SplashPatchEngine.csprojAssemblyReference.cache
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Debug\net5.0\SplashPatchEngine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Debug\net5.0\SplashPatchEngine.AssemblyInfoInputs.cache
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Debug\net5.0\SplashPatchEngine.AssemblyInfo.cs
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Debug\net5.0\SplashPatchEngine.csproj.CoreCompileInputs.cache
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Debug\net5.0\SplashPatchEngine.csproj.CopyComplete
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Debug\net5.0\SplashPatchEngine.dll
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Debug\net5.0\SplashPatchEngine.pdb

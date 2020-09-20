@@ -1,0 +1,13 @@
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\bin\Release\netcoreapp3.1\win-x64\SplashPatchEngine.deps.json
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\bin\Release\netcoreapp3.1\win-x64\SplashPatchEngine.dll
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\bin\Release\netcoreapp3.1\win-x64\SplashPatchEngine.pdb
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\bin\Release\netcoreapp3.1\win-x64\Microsoft.AspNetCore.StaticFiles.dll
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\bin\Release\netcoreapp3.1\win-x64\PShop.dll
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\bin\Release\netcoreapp3.1\win-x64\Microsoft.AspNetCore.StaticFiles.xml
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.csprojAssemblyReference.cache
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.AssemblyInfoInputs.cache
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.AssemblyInfo.cs
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.csproj.CoreCompileInputs.cache
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.csproj.CopyComplete
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.dll
+C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.pdb

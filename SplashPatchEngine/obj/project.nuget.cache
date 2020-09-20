@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "xcj9dCfbOVPgtwPrjWpCBELCaYaHxMf0AuxPEqBUpSz50+yun01QL9AkqsIjCseoYKqHrDgM4cNU6Oh5ThwHXw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\TheOneCode\\source\\repos\\SplashPatchEngine\\SplashPatchEngine.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\TheOneCode\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\TheOneCode\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\TheOneCode\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
+    "C:\\Users\\TheOneCode\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
