@@ -125,13 +125,10 @@ namespace SplashPatch
         }
         #endregion
 
-        string prg;
-
         #region change INDEX OF appSelect
         private void appSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
             #region long SWITCH CASE
-            prg = appSelect.Text;
             switch (appSelect.Text)
             {
                 case "After Effects":
