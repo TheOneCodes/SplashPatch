@@ -8,6 +8,19 @@ SplashPatch can automatically save splash images to PNG, making it much easier t
 SplashPatch gives you the ability to auto-magically change the splash image in pretty much all Adobe Creative Cloud products between 2017 and present with just a PNG.
 ## Customize
 SplashPatch can change the splash images to whatever image you want, be it your dog or a funny inside joke, as long as it is the correct dimensions.
+
+# The boring stuff:
+
+## Dependencies
+
+### SplashPatchEngine requires
+
+- .Net Core 3.1.0 (Microsoft.NETCore.App)
+- Microsoft.AspNetCore.StaticFiles
+- [Icon Resource Extractor/Packer libraries for Photoshop (PShop.CC.IconResources) from jz5 (Available on github)](https://github.com/jz5/pshop)
+
+- [Resource Hacker by Angus Johnson](http://www.angusj.com/resourcehacker/) is used for `dll` and `exe` patching until SplashPatchEngine gets the native functionallity. SplashPatch should get Resource Hacker from the Publisher automatically upon launch however it will need to be added with any derivatives using SplashPatchEngine.
+
 ## Disclaimer
 ***SplashPatch does not nor will it ever modify programs to allow "Hacked" or "Cracked" versions for free, it solely modifies legitimately acquired activated and trial versions.*** SplashPatch does not support beta releases.
 
