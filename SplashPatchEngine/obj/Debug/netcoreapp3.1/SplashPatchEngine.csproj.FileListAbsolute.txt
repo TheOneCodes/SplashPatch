@@ -22,3 +22,5 @@ A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\bin\Debug\netcoreapp3.1\Splas
 A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\bin\Debug\netcoreapp3.1\SplashPatchEngine.pdb
 A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\bin\Debug\netcoreapp3.1\PShop.dll
 A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Debug\netcoreapp3.1\SplashPatchEngine.csproj.CopyComplete
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\bin\Debug\netcoreapp3.1\SplashPatchEngine.xml
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Debug\netcoreapp3.1\SplashPatchEngine.xml

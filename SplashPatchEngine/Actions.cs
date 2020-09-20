@@ -4,18 +4,34 @@ using System.Collections.Generic;
 
 namespace SplashPatchEngine
 {
+    /// <summary>
+    /// SplashPatchEngine Actions to be used by dependant application.
+    /// </summary>
     public class Actions
     {
+        #region Save
+        /// <summary>
+        /// <para>SplashPatchEngine Save Action</para>
+        /// <para>This function will save the specified program's currently applied splash screen to multiple PNG files</para>
+        /// </summary>
+        /// <param name="program">Non-case sensitive name of the Adobe Creative Cloud Program, with space, underscore or 2 letter code (for example: "ae", "after_effects" or "after effects")</param>
+        /// <param name="from">Full directory to the current installation location (for example: "C:\Program Files\Adobe\Adobe After Effects 2020" or C:\Program Files\Adobe\Adobe Photoshop 2017)</param>
+        /// <param name="to">Full directory to where the user would like the splash images to save to (for example: "C:\Users\username\Pictures\" or "E:\splash images\")</param>
+        /// <param name="files">Specified program's files array (not necessary for Photoshop)</param>
+        /// <param name="masks">Specified program's masks array (not necessary for Photoshop, Illustrator, Prelude, Premiere Pro)</param>
+        /// <param name="year">Specified program's release year (for some programs that require the year of release in mask, not necessary for Photoshop)</param>
         public static void Save(string program, string from, string to, string[] files, string[] masks, string year)
         {
             switch (program.ToLower())
             {
                 case "ps":
                 case "photoshop":
+                    //Photoshop
                     PS.Save(from, to);
                     break;
                 case "dw":
                 case "dreamweaver":
+                    //Dreamweaver
                     CultureInfo[] cinfo = CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures);
                     foreach (CultureInfo cul in cinfo)
                     {
@@ -36,6 +52,7 @@ namespace SplashPatchEngine
                 case "me":
                 case "media_encoder":
                 case "media encoder":
+                    //After Effects, Audition, Character Animator, Media Encoder
                     common.Save(from + files[0], to, masks, year);
                     break;
                 case "ai":
@@ -45,23 +62,40 @@ namespace SplashPatchEngine
                 case "pr":
                 case "premiere_pro":
                 case "premiere pro":
+                    //Illustrator, Prelude, Premiere Pro
                     common.Copy(from, files, to, false, year);
                     break;
                 default:
+                    //None of the above
                     throw new InvalidProgram(program);
             }
         }
+        #endregion
 
+        #region Change
+        /// <summary>
+        /// <para>SplashPatchEngine Change Action</para>
+        /// <para>This function will change the specified program's currently applied splash screen to the specified PNG</para>
+        /// <para>It will only change one dimension at a time, only one PNG can and should be selected at a time.</para>
+        /// </summary>
+        /// <param name="program">Non-case sensitive name of the Adobe Creative Cloud Program, with space, underscore or 2 letter code (for example: "ae", "after_effects" or "after effects")</param>
+        /// <param name="from">Full directory to the current installation location (for example: "C:\Program Files\Adobe\Adobe After Effects 2020" or C:\Program Files\Adobe\Adobe Photoshop 2017)</param>
+        /// <param name="to">Full directory to the PNG of witch the use would like to change the splash to (for example: "C:\Users\username\Pictures\splash.png" or "E:\splash images\an image.png")</param>
+        /// <param name="files">Specified program's files array (not necessary for Photoshop)</param>
+        /// <param name="masks">Specified program's masks array (not necessary for Photoshop, Illustrator, Prelude, Premiere Pro)</param>
+        /// <param name="year">Specified program's release year (for some programs that require the year of release in mask, not necessary for Photoshop)</param>
         public static void Change(string program, string from, string to, string[] files, string[] masks, string year)
         {
             switch (program.ToLower())
             {
                 case "ps":
                 case "photoshop":
+                    //Photoshop
                     PS.Change(from, to);
                     break;
                 case "dw":
                 case "dreamweaver":
+                    //Dreamweaver
                     CultureInfo[] cinfo = CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures);
                     foreach (CultureInfo cul in cinfo)
                     {
@@ -82,6 +116,7 @@ namespace SplashPatchEngine
                 case "me":
                 case "media_encoder":
                 case "media encoder":
+                    //After Effects, Audition, Character Animator, Media Encoder
                     common.Change(from + files[0], to, masks, year);
                     break;
                 case "ai":
@@ -91,13 +126,39 @@ namespace SplashPatchEngine
                 case "pr":
                 case "premiere_pro":
                 case "premiere pro":
+                    //Illustrator, Prelude, Premiere Pro
                     common.Copy(from, files, to, true, year);
                     break;
                 default:
+                    //None of the above
                     throw new InvalidProgram(program);
             }
         }
+        #endregion
 
+        #region Locate 
+        /// <summary>
+        /// SplashPatchEngine Locate Action
+        /// This function will automatically locate the specified program's current install location
+        /// </summary>
+        /// <param name="name">Specified program's name string</param>
+        /// <param name="files">Specified program's files array</param>
+        /// <returns>
+        /// <list type="bullet">
+        /// <item>
+        /// <term>location</term>
+        /// <description>Full directory to the current Auto-Detected installation location (for example: "C:\Program Files\Adobe\Adobe After Effects 2020" or C:\Program Files\Adobe\Adobe Photoshop 2017)</description>
+        /// </item>
+        /// <item>
+        /// <term>version</term>
+        /// <description>Specified program's Auto-Detected release year</description>
+        /// </item>
+        /// <item>
+        /// <term>culture_code</term>
+        /// <description>List of the detected culture codes (null if not Dreamweaver)</description>
+        /// </item>
+        /// </list>
+        /// </returns>
         public static (string location, string version, List<string> culture_code) Locate(string name, string[] files)
         {
             #region locate DIRECTORY WITH SPECIFIED PROGRAM name
@@ -165,7 +226,17 @@ namespace SplashPatchEngine
             throw new FailedAutoLocate(name);
             #endregion
         }
+        #endregion
 
+        #region Verify
+        /// <summary>
+        /// <para>SplashPatchEngine Verify Action</para>
+        /// <para>This function will automatically locate the specified program's current install location</para>
+        /// </summary>
+        /// <param name="d">Specified program's suspected location</param>
+        /// <param name="files">Specified program's files array</param>
+        /// <param name="region">True if Dreamweaver</param>
+        /// <returns>Returns either a list of region culture codes or null</returns>
         public static List<string> Verify(string d, string[] files, bool region = false)
         {
             if (files[0].Contains("*"))
@@ -212,6 +283,15 @@ namespace SplashPatchEngine
             }
             #endregion
         }
+        #endregion
+
+        #region Version
+        /// <summary>
+        /// <para>SplashPatchEngine Version Action</para>
+        /// <para>This function will automatically detect the specified program's release year from it's directory</para>
+        /// </summary>
+        /// <param name="location">Specified program's location</param>
+        /// <returns>Version year as string</returns>
         public static string Version(string location)
         {
             #region just a for loop
@@ -226,5 +306,7 @@ namespace SplashPatchEngine
 
             throw new IncompatibleVersion(location);
         }
+        #endregion
+
     }
 }

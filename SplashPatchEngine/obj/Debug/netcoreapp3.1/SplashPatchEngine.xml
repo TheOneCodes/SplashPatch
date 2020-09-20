@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SplashPatchEngine</name>
+    </assembly>
+    <members>
+        <member name="T:SplashPatchEngine.Actions">
+            <summary>
+            SplashPatchEngine Actions to be used by dependant application.
+            </summary>
+        </member>
+        <member name="M:SplashPatchEngine.Actions.Save(System.String,System.String,System.String,System.String[],System.String[],System.String)">
+            <summary>
+            <para>SplashPatchEngine Save Action</para>
+            <para>This function will save the specified program's currently applied splash screen to multiple PNG files</para>
+            </summary>
+            <param name="program">Non-case sensitive name of the Adobe Creative Cloud Program, with space, underscore or 2 letter code (for example: "ae", "after_effects" or "after effects")</param>
+            <param name="from">Full directory to the current installation location (for example: "C:\Program Files\Adobe\Adobe After Effects 2020" or C:\Program Files\Adobe\Adobe Photoshop 2017)</param>
+            <param name="to">Full directory to where the user would like the splash images to save to (for example: "C:\Users\username\Pictures\" or "E:\splash images\")</param>
+            <param name="files">Specified program's files array (not necessary for Photoshop)</param>
+            <param name="masks">Specified program's masks array (not necessary for Photoshop, Illustrator, Prelude, Premiere Pro)</param>
+            <param name="year">Specified program's release year (for some programs that require the year of release in mask, not necessary for Photoshop)</param>
+        </member>
+        <member name="M:SplashPatchEngine.Actions.Change(System.String,System.String,System.String,System.String[],System.String[],System.String)">
+            <summary>
+            <para>SplashPatchEngine Change Action</para>
+            <para>This function will change the specified program's currently applied splash screen to the specified PNG</para>
+            <para>It will only change one dimension at a time, only one PNG can and should be selected at a time.</para>
+            </summary>
+            <param name="program">Non-case sensitive name of the Adobe Creative Cloud Program, with space, underscore or 2 letter code (for example: "ae", "after_effects" or "after effects")</param>
+            <param name="from">Full directory to the current installation location (for example: "C:\Program Files\Adobe\Adobe After Effects 2020" or C:\Program Files\Adobe\Adobe Photoshop 2017)</param>
+            <param name="to">Full directory to the PNG of witch the use would like to change the splash to (for example: "C:\Users\username\Pictures\splash.png" or "E:\splash images\an image.png")</param>
+            <param name="files">Specified program's files array (not necessary for Photoshop)</param>
+            <param name="masks">Specified program's masks array (not necessary for Photoshop, Illustrator, Prelude, Premiere Pro)</param>
+            <param name="year">Specified program's release year (for some programs that require the year of release in mask, not necessary for Photoshop)</param>
+        </member>
+        <member name="M:SplashPatchEngine.Actions.Locate(System.String,System.String[])">
+            <summary>
+            SplashPatchEngine Locate Action
+            This function will automatically locate the specified program's current install location
+            </summary>
+            <param name="name">Specified program's name string</param>
+            <param name="files">Specified program's files array</param>
+            <returns>
+            <list type="bullet">
+            <item>
+            <term>location</term>
+            <description>Full directory to the current Auto-Detected installation location (for example: "C:\Program Files\Adobe\Adobe After Effects 2020" or C:\Program Files\Adobe\Adobe Photoshop 2017)</description>
+            </item>
+            <item>
+            <term>version</term>
+            <description>Specified program's Auto-Detected release year</description>
+            </item>
+            <item>
+            <term>culture_code</term>
+            <description>List of the detected culture codes (null if not Dreamweaver)</description>
+            </item>
+            </list>
+            </returns>
+        </member>
+        <member name="M:SplashPatchEngine.Actions.Verify(System.String,System.String[],System.Boolean)">
+            <summary>
+            <para>SplashPatchEngine Verify Action</para>
+            <para>This function will automatically locate the specified program's current install location</para>
+            </summary>
+            <param name="d">Specified program's suspected location</param>
+            <param name="files">Specified program's files array</param>
+            <param name="region">True if Dreamweaver</param>
+            <returns>Returns either a list of region culture codes or null</returns>
+        </member>
+        <member name="M:SplashPatchEngine.Actions.Version(System.String)">
+            <summary>
+            <para>SplashPatchEngine Version Action</para>
+            <para>This function will automatically detect the specified program's release year from it's directory</para>
+            </summary>
+            <param name="location">Specified program's location</param>
+            <returns>Version year as string</returns>
+        </member>
+    </members>
+</doc>

@@ -10,7 +10,7 @@ using System.Diagnostics;
 
 namespace ResourceHacker
 {
-    public class MissingRH : Exception
+    internal class MissingRH : Exception
     {
         public MissingRH(string location)
             : base(String.Format("Resource hacker is required and is missing from \"{0}\".", location))
@@ -19,7 +19,7 @@ namespace ResourceHacker
         }
     }
 
-    public class Get
+    internal class Get
     {
         public static string find = AppDomain.CurrentDomain.BaseDirectory + "rh.dll";
 
@@ -51,7 +51,7 @@ namespace ResourceHacker
         }
     }
 
-    public class Verify
+    internal class Verify
     {
         public static void RHdll(string find)
         {
@@ -62,7 +62,7 @@ namespace ResourceHacker
         }
     }
 
-    public class Set
+    internal class Set
     {
         public static string find = AppDomain.CurrentDomain.BaseDirectory + "rh.dll";
 

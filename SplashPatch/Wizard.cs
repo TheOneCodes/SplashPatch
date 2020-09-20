@@ -20,28 +20,12 @@ using System.Configuration;
 using System.Threading.Tasks;
 #endregion
 
-#region unnecesary inclusions removed because why not
-/*
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using PShop.PShop.CC2017;
-*/
-#endregion
-
 namespace SplashPatch
 {
     public partial class Wizard : Form
     {
-
-        Form splash = new Splash();
-
         #region initialize
+        Form splash = new Splash();
         public Wizard()
         {
             splash.Text = "loading";
@@ -122,6 +106,11 @@ namespace SplashPatch
             if (Control.ModifierKeys != Keys.Shift)
                 System.Threading.Thread.Sleep(500);
             #endregion
+        }
+
+        private void Wizard_Load(object sender, EventArgs e)
+        {
+            splash.Hide();
         }
         #endregion
 
@@ -494,16 +483,7 @@ namespace SplashPatch
         }
         #endregion
 
-        private void Wizard_Load(object sender, EventArgs e)
-        {
-            splash.Hide();
-        }
-
-        private void disable(bool oi)
-        {
-            Enabled = oi;
-        }
-
+        #region ProgressBar
         public (bool show, string title, string label, bool dialog) progressData = (false, "loading", "loading", false);
 
         Progress progress = new Progress();
@@ -554,6 +534,7 @@ namespace SplashPatch
             progress.Close();
 
         }
+        #endregion
 
     }
 }
