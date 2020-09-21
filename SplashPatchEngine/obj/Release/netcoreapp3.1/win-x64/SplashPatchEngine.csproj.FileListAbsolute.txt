@@ -11,3 +11,16 @@ C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Release\netcoreapp3.1\win
 C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.csproj.CopyComplete
 C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.dll
 C:\Users\TheOneCode\source\repos\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.pdb
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\bin\Release\netcoreapp3.1\win-x64\SplashPatchEngine.deps.json
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\bin\Release\netcoreapp3.1\win-x64\SplashPatchEngine.dll
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\bin\Release\netcoreapp3.1\win-x64\SplashPatchEngine.pdb
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\bin\Release\netcoreapp3.1\win-x64\SplashPatchEngine.xml
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\bin\Release\netcoreapp3.1\win-x64\PShop.dll
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.csprojAssemblyReference.cache
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.AssemblyInfoInputs.cache
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.AssemblyInfo.cs
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.csproj.CoreCompileInputs.cache
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.csproj.CopyComplete
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.dll
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.xml
+A:\repos\SplashPatch\SplashPatch\SplashPatchEngine\obj\Release\netcoreapp3.1\win-x64\SplashPatchEngine.pdb
