@@ -44,6 +44,8 @@ namespace SplashPatchEngine
                 case "ae":
                 case "after_effects":
                 case "after effects":
+                case "an":
+                case "animate":
                 case "au":
                 case "audition":
                 case "ch":
@@ -52,7 +54,7 @@ namespace SplashPatchEngine
                 case "me":
                 case "media_encoder":
                 case "media encoder":
-                    //After Effects, Audition, Character Animator, Media Encoder
+                    //After Effects, Audition, Character Animator, Media Encoder, Animate
                     common.Save(from + files[0], to, masks, year);
                     break;
                 case "ai":
@@ -108,6 +110,8 @@ namespace SplashPatchEngine
                 case "ae":
                 case "after_effects":
                 case "after effects":
+                case "an":
+                case "animate":
                 case "au":
                 case "audition":
                 case "ch":

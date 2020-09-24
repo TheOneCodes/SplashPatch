@@ -30,6 +30,9 @@ namespace SplashPatchEngine
                 case "dw":
                 case "dreamweaver":
                     return (DW.name, DW.directory, DW.files, DW.masks, false, DW.helpText);
+                case "an":
+                case "animate":
+                    return (AN.name, AN.directory, AN.files, AN.masks, false, AN.helpText);
                 case "ai":
                 case "illustrator":
                     return (AI.name, AI.directory, AI.files, null, true, AI.helpText);
@@ -60,6 +63,8 @@ namespace SplashPatchEngine
             List<(string display, string full, string shorten, string helpText)> returning = new List<(string display, string full, string shorten, string helpText)>();
             (string display, string full, string shorten, string helpText) hold;
             hold = (AE.name.display, AE.name.full, AE.name.shorten, AE.helpText);
+            returning.Add(hold);
+            hold = (AN.name.display, AN.name.full, AN.name.shorten, AN.helpText);
             returning.Add(hold);
             hold = (AU.name.display, AU.name.full, AU.name.shorten, AU.helpText);
             returning.Add(hold);

@@ -18,6 +18,7 @@
     <PackageIcon>icon.ico</PackageIcon>
     <RepositoryUrl>https://github.com/TheOneTrueCode/SplashPatch</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

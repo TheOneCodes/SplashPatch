@@ -76,5 +76,124 @@
             <param name="location">Specified program's location</param>
             <returns>Version year as string</returns>
         </member>
+        <member name="T:SplashPatchEngine.FailedAutoLocate">
+            <summary>
+            Auto-Locate has failed
+            </summary>
+        </member>
+        <member name="M:SplashPatchEngine.FailedAutoLocate.#ctor(System.String)">
+            <summary>
+            Auto-Locate has failed
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="T:SplashPatchEngine.IncompatibleVersion">
+            <summary>
+            The selected program's version is not currently compatible
+            </summary>
+        </member>
+        <member name="M:SplashPatchEngine.IncompatibleVersion.#ctor(System.String)">
+            <summary>
+            The selected program's version is not currently compatible
+            </summary>
+        </member>
+        <member name="T:SplashPatchEngine.MissingRequiredFile">
+            <summary>
+            A file that is necessary for the selected program's splash screen is missing
+            </summary>
+        </member>
+        <member name="M:SplashPatchEngine.MissingRequiredFile.#ctor(System.String,System.String)">
+            <summary>
+            A file that is necessary for the selected program's splash screen is missing
+            </summary>
+        </member>
+        <member name="M:SplashPatchEngine.MissingRequiredFile.#ctor(System.String)">
+            <summary>
+            A file that is necessary for the selected program's splash screen is missing
+            </summary>
+        </member>
+        <member name="T:SplashPatchEngine.InvalidDimensions">
+            <summary>
+            The image's dimensions do not match a splash screen of the selected program
+            </summary>
+        </member>
+        <member name="M:SplashPatchEngine.InvalidDimensions.#ctor(System.Int32[],System.Int32[],System.Int32[],System.Int32[])">
+            <summary>
+            The image's dimensions do not match a splash screen of the selected program
+            </summary>
+        </member>
+        <member name="M:SplashPatchEngine.InvalidDimensions.#ctor(System.Int32[],System.Int32[],System.Int32[])">
+            <summary>
+            The image's dimensions do not match a splash screen of the selected program
+            </summary>
+        </member>
+        <member name="M:SplashPatchEngine.InvalidDimensions.#ctor(System.Int32[],System.Int32[])">
+            <summary>
+            The image's dimensions do not match a splash screen of the selected program
+            </summary>
+        </member>
+        <member name="T:SplashPatchEngine.InvalidPNG">
+            <summary>
+            The selected image is not in fact a PNG
+            </summary>
+        </member>
+        <member name="M:SplashPatchEngine.InvalidPNG.#ctor">
+            <summary>
+            The selected image is not in fact a PNG
+            </summary>
+        </member>
+        <member name="M:SplashPatchEngine.InvalidPNG.#ctor(System.String)">
+            <summary>
+            The selected image is not in fact a PNG
+            </summary>
+        </member>
+        <member name="T:SplashPatchEngine.FailedPhotoshopExtract">
+            <summary>
+            Photoshop Extract simply failed (unknown)
+            </summary>
+        </member>
+        <member name="M:SplashPatchEngine.FailedPhotoshopExtract.#ctor(System.String)">
+            <summary>
+            Photoshop Extract simply failed (unknown)
+            </summary>
+        </member>
+        <member name="T:SplashPatchEngine.FailedPhotoshopPack">
+            <summary>
+            Photoshop Pack operation simply failed (unknown)
+            </summary>
+        </member>
+        <member name="M:SplashPatchEngine.FailedPhotoshopPack.#ctor(System.String)">
+            <summary>
+            Photoshop Pack operation simply failed (unknown)
+            </summary>
+        </member>
+        <member name="T:SplashPatchEngine.InvalidProgram">
+            <summary>
+            The selected program is not valid
+            </summary>
+        </member>
+        <member name="M:SplashPatchEngine.InvalidProgram.#ctor(System.String)">
+            <summary>
+            The selected program is not valid
+            </summary>
+        </member>
+        <member name="T:SplashPatchEngine.Load">
+            <summary>
+            SplashPatchEngine Load tasks
+            </summary>
+        </member>
+        <member name="M:SplashPatchEngine.Load.Variables(System.String)">
+            <summary>
+            Get the necessary variables for a specific program
+            </summary>
+            <param name="program">The name or identifier of a supported Adobe Creative Cloud program</param>
+            <returns></returns>
+        </member>
+        <member name="M:SplashPatchEngine.Load.List">
+            <summary>
+            Get a list of currently compatible software
+            </summary>
+            <returns>List of Tuple of display name, full name, 2 letter shortened and help text</returns>
+        </member>
     </members>
 </doc>
