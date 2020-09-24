@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "03xG9iksce7u6Rkrlw1gquM86PH6esHORnUNJ4wwe+OPbiQXbU4bzgCx/ZghC9dmwCrOFd563+9z5dxAZYml3Q==",
+  "dgSpecHash": "/WGnSa2KbXj8U71GKra8fOi9SBmYEx6RQmEROgthccmcDbl4/AgudjjQfYIIGFr8lvaTY2peNhmgzi7zZYqNag==",
   "success": true,
   "projectFilePath": "A:\\repos\\SplashPatch\\SplashPatch\\SplashPatchEngine\\SplashPatchEngine.csproj",
   "expectedPackageFiles": [
@@ -27,10 +27,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
     "C:\\Users\\TheOneCode\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512",
-    "C:\\Users\\TheOneCode\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\3.1.7\\microsoft.netcore.app.runtime.win-x64.3.1.7.nupkg.sha512",
-    "C:\\Users\\TheOneCode\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\3.1.2\\microsoft.windowsdesktop.app.runtime.win-x64.3.1.2.nupkg.sha512",
-    "C:\\Users\\TheOneCode\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512",
-    "C:\\Users\\TheOneCode\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\3.1.2\\microsoft.aspnetcore.app.runtime.win-x64.3.1.2.nupkg.sha512"
+    "C:\\Users\\TheOneCode\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
   "logs": []
 }

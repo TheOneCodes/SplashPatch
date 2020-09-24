@@ -18,6 +18,8 @@ using SplashPatch.Properties;
 using System.Globalization;
 using System.Configuration;
 using System.Threading.Tasks;
+using System.Threading;
+using System.Windows.Threading;
 #endregion
 
 namespace SplashPatch
@@ -84,22 +86,19 @@ namespace SplashPatch
             InitializeComponent();
 
             #region populate appSelect
-            appSelect.Items.AddRange(new object[] {
-            "After Effects",
-            "Audition",
-            "Character Animator",
-            "Dreamweaver",
-            "Illustrator",
-            "Media Encoder",
-            "Photoshop",
-            "Prelude",
-            "Premiere Pro"});
+            foreach((string display, string full, string shorten, string helpText) i in SplashPatchEngine.Load.List())
+            {
+                appSelect.Items.Add(i.display);
+            }
             #endregion
             Application.DoEvents();
             if (Control.ModifierKeys != Keys.Shift)
                 System.Threading.Thread.Sleep(1000);
 
             splash.Text = "Loading";
+            helpText.Visible = false;
+            Height = 110;
+            MaximumSize = new System.Drawing.Size(99999,110);
             #region set appSelect DEFAULT
             appSelect.Text = "Photoshop";
             Application.DoEvents();
@@ -114,10 +113,39 @@ namespace SplashPatch
         }
         #endregion
 
+        #region close
+        private void Wizard_Closing(object sender, FormClosingEventArgs e)
+        {
+            if (!Enabled)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void Wizard_Closed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(1);
+        }
+        #endregion
+
         #region change INDEX OF appSelect
         private void appSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
             #region long SWITCH CASE
+
+            foreach((string display, string full, string shorten, string helpText) i in SplashPatchEngine.Load.List())
+            {
+                if (appSelect.Text == i.display)
+                {
+                    helpText.Text = i.helpText;
+                }
+            }
+            if (helpText.Text == "")
+            {
+                MessageBox.Show("mama mia");
+            }
+            
+            /*
             switch (appSelect.Text)
             {
                 case "After Effects":
@@ -157,6 +185,7 @@ namespace SplashPatch
                     helpText.Text += "Copies 3 images to the correct PNG directory" + Environment.NewLine + "pr_splash.PNG (750x500)" + Environment.NewLine + "pr_splash@3to2x.PNG (1125x750)" + Environment.NewLine + "pr_splash@2x.PNG (1500x1000)" + Environment.NewLine + "Dimensions MUST match and images MUST be PNG format";
                     break;
             }
+            */
             #endregion
         }
         #endregion
@@ -167,24 +196,31 @@ namespace SplashPatch
             #region try Save
             try
             {
-                progressUpdater.RunWorkerAsync();
+                progressData.show = true;
+                Thread thread = new Thread(() =>
+                {
+                    progress = new ProgressWPF();
+                    progressData.Change += progress.ChangeStuff;
+                    progress.Show();
+                    Dispatcher.Run();
+                });
+                thread.IsBackground = false;
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.Start();
                 Enabled = false;
                 Save(appSelect.Text);
             }
             #endregion
 
             #region ouch
-            catch (FailedAutoLocate)
-            {
-                helpText.Text = "this should never catch here";
-            }
             catch (Exception ex)
             {
                 helpText.Text = ex.ToString();
             }
+            #endregion
             Enabled = true;
             progressData.show = false;
-            #endregion
+            progressData.Change -= progress.ChangeStuff;
         }
         #endregion
 
@@ -194,6 +230,18 @@ namespace SplashPatch
             #region try CHANGE
             try
             {
+                progressData.show = true;
+                Thread thread = new Thread(() =>
+                {
+                    progress = new ProgressWPF();
+                    progressData.Change += progress.ChangeStuff;
+                    progress.Show();
+                    Dispatcher.Run();
+                });
+                thread.IsBackground = false;
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.Start();
+                Enabled = false;
                 Change(appSelect.Text);
             }
             #endregion
@@ -204,13 +252,16 @@ namespace SplashPatch
                 helpText.Text = ex.ToString();
             }
             #endregion
+            Enabled = true;
+            progressData.show = false;
+            progressData.Change -= progress.ChangeStuff;
         }
         #endregion
 
         #region SAVE
         bool Save(string program)
         {
-            progressData.title = program;
+            progressData.title = program + " Save";
 
             #region declare VARIABLES
             //bool cont = true;
@@ -229,19 +280,19 @@ namespace SplashPatch
                 #region Locate()
                 try
                 {
+                    progressData.label = String.Format("{0}Attempting to auto-locate {1}",Environment.NewLine, program);
                     var located = Actions.Locate(info.directory, info.files);
                     from = located.location;
                     year = located.version;
                     auto = true;
-                    progressData.label = String.Format("located {0} at \"{1}\"", program, from);
+                    progressData.label = String.Format("located {1} at {0}\"{2}\"", Environment.NewLine, program, from);
                     helpText.Text = String.Format("located {0} at \"{1}\"", program, from);
                 }
                 catch (FailedAutoLocate)
                 {
                     //it's ok, we handled it.
                     from = string.Empty;
-                    progressData.label = String.Format("Failed to auto-locate {0}, please loacte it manually now:", program);
-                    helpText.Text = String.Format("Failed to auto-locate {0}, please loacte it manually now:", program);
+                    helpText.Text = String.Format("Failed to auto-locate {1}{0}please loacte it manually now", Environment.NewLine, program);
                 }
                 #endregion
             }
@@ -253,12 +304,13 @@ namespace SplashPatch
                 #region FOLDER DIALOG
                 folderDialog.SelectedPath = Environment.SpecialFolder.ProgramFiles.ToString();
                 folderDialog.UseDescriptionForTitle = true;
-                progressData.label = String.Format("Locate the current {0} installation", program);
+                progressData.label = String.Format("Please select the current {0} installation location", program);
                 folderDialog.Description = String.Format("Locate the current {0} installation", program);
                 //result = ;
                 progressData.dialog = true;
                 if (folderDialog.ShowDialog() == DialogResult.OK)
                 {
+                    progressData.label = String.Format("Verifying selection for required {0} files", program);
                     progressData.dialog = false;
                     string loc = folderDialog.SelectedPath;
                     if (info.PNG)
@@ -276,20 +328,15 @@ namespace SplashPatch
                             }
                             catch (IncompatibleVersion)
                             {
-                                progressData.label = String.Format("Installation of {0} at \"{1}\" is either to old or too new for this program", program, folderDialog.SelectedPath);
+                                progressData.label = String.Format("Installation of {1} at{0}\"{2}\"{0}is either to old or too new for this program", Environment.NewLine, program, folderDialog.SelectedPath);
                                 helpText.Text = String.Format("Installation of {0} at \"{1}\" is either to old or too new for this program", program, folderDialog.SelectedPath);
                                 return false;
                             }
                         }
-                        else
-                        {
-                            helpText.Text = "error";
-                            return false;
-                        }
                     }
                     catch (MissingRequiredFile)
                     {
-                        progressData.label = String.Format("Invalid installation at \"{0}\" (Missing required file)", folderDialog.SelectedPath);
+                        progressData.label = String.Format("Invalid installation at{0}\"{1}\"{0}(Missing required file)", Environment.NewLine, folderDialog.SelectedPath);
                         helpText.Text = String.Format("Invalid installation at \"{0}\" (Missing required file)", folderDialog.SelectedPath);
                         return false;
                     }
@@ -297,7 +344,7 @@ namespace SplashPatch
                 else
                 {
                     progressData.dialog = false;
-                    progressData.label = "dialog box closed";
+                    progressData.label = "Dialog box closed";
                     helpText.Text = "dialog box closed";
                     return false;
                 }
@@ -309,6 +356,7 @@ namespace SplashPatch
             folderDialog.UseDescriptionForTitle = true;
             folderDialog.Description = String.Format("Select where to save the current {0} splash as individual PNG files", program);
             //result = ;
+            progressData.label = String.Format("Please select where to save the currently applied {0} splash images", program);
 
             progressData.dialog = true;
 
@@ -316,13 +364,12 @@ namespace SplashPatch
             {
                 progressData.dialog = false;
                 to = folderDialog.SelectedPath;
-                progressData.label = String.Format("Saving {0} splash to \"{1}\"", program, to);
                 helpText.Text = String.Format("Saving {0} splash to \"{1}\"", program, to);
             }
             else
             {
                 progressData.dialog = false;
-                progressData.label = "dialog box closed";
+                progressData.label = "Dialog box closed";
                 helpText.Text = "dialog box closed";
                 return false;
             }
@@ -331,10 +378,12 @@ namespace SplashPatch
             #region "program".Save()
             try
             {
+                progressData.label = String.Format("Saving {1} splash to{0}\"{2}\"{0}please wait", Environment.NewLine, program, to);
                 Actions.Save(program, from, to, info.files, info.masks, year);
             }
             catch (Exception ex)
             {
+                progressData.label = String.Format("{1} splash save failed!", Environment.NewLine, program);
                 progressData.label = ex.ToString();
                 helpText.Text = ex.ToString();
                 return false;
@@ -342,6 +391,7 @@ namespace SplashPatch
             #endregion
 
             #region result
+            progressData.label = String.Format("{0}Success, opening directory", Environment.NewLine);
             helpText.Text += Environment.NewLine + "Success, opening directory";
             try
             {
@@ -355,6 +405,7 @@ namespace SplashPatch
             }
             catch
             {
+                progressData.label = String.Format("{0}Failed to open directory", Environment.NewLine);
                 helpText.Text += Environment.NewLine + "Failed to open directory";
             }
             #endregion
@@ -365,6 +416,8 @@ namespace SplashPatch
         #region CHANGE
         private bool Change(string program)
         {
+            progressData.title = program + " Change";
+
             #region declare VARIABLES
             string from = string.Empty;
             string to = string.Empty;
@@ -381,10 +434,12 @@ namespace SplashPatch
                 #region Locate()
                 try
                 {
+                    progressData.label = String.Format("Attempting to auto-locate {0}", program);
                     var located = Actions.Locate(info.directory, info.files);
                     from = located.location;
                     year = located.version;
                     auto = true;
+                    progressData.label = String.Format("located {0} at \"{1}\"", program, from);
                     helpText.Text = String.Format("located {0} at \"{1}\"", program, from);
                 }
                 catch (FailedAutoLocate)
@@ -403,10 +458,14 @@ namespace SplashPatch
                 #region FOLDER DIALOG
                 folderDialog.SelectedPath = Environment.SpecialFolder.ProgramFiles.ToString();
                 folderDialog.UseDescriptionForTitle = true;
+                progressData.label = String.Format("Please select the current {0} installation location", program);
                 folderDialog.Description = String.Format("Locate the current {0} installation", program);
                 //result = ;
+                progressData.dialog = true;
                 if (folderDialog.ShowDialog() == DialogResult.OK)
                 {
+                    progressData.dialog = false;
+                    progressData.label = String.Format("Verifying selection for required {0} files", program);
                     string loc = folderDialog.SelectedPath;
                     if (info.PNG)
                     {
@@ -424,24 +483,23 @@ namespace SplashPatch
                             }
                             catch (IncompatibleVersion)
                             {
+                                progressData.label = String.Format("Installation of {0} at \"{1}\" is either to old or too new for this program", program, folderDialog.SelectedPath);
                                 helpText.Text = String.Format("Installation of {0} at \"{1}\" is either to old or too new for this program", program, folderDialog.SelectedPath);
                                 return false;
                             }
                         }
-                        else
-                        {
-                            helpText.Text = "error";
-                            return false;
-                        }
                     }
                     catch (MissingRequiredFile)
                     {
+                        progressData.label = String.Format("Invalid installation at \"{0}\" (Missing required file)", folderDialog.SelectedPath);
                         helpText.Text = String.Format("Invalid installation at \"{0}\" (Missing required file)", folderDialog.SelectedPath);
                         return false;
                     }
                 }
                 else
                 {
+                    progressData.dialog = false;
+                    progressData.label = "Dialog box closed";
                     helpText.Text = "dialog box closed";
                     return false;
                 }
@@ -452,12 +510,20 @@ namespace SplashPatch
             #region locate PNG
             fileDialog.Filter = "Portable Network Graphic image (PNG)|*.png";
             fileDialog.RestoreDirectory = true;
+
+            progressData.label = String.Format("Please select a PNG for {0}'s splash image", program);
+
+            progressData.dialog = true;
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
+                progressData.dialog = false;
                 to = fileDialog.FileName;
+                helpText.Text = String.Format("Replacing {1} splash with{0}\"{2}\"", Environment.NewLine, program, to);
             }
             else
             {
+                progressData.dialog = false;
+                progressData.label = "Dialog box closed";
                 helpText.Text = "dialog box closed";
                 return false;
             }
@@ -466,75 +532,135 @@ namespace SplashPatch
             #region replace PNG (differing methods)
             try
             {
+                progressData.label = String.Format("Changing {1} splash to{0}\"{2}\"{0} please wait", Environment.NewLine, program, to);
                 Actions.Change(program, from, to, info.files, info.masks, year);
             }
             catch (Exception ex)
             {
+                progressData.label = String.Format("{0}{1} splash change failed!", Environment.NewLine, program, to);
+                progressData.label = ex.ToString();
                 helpText.Text = ex.ToString();
                 return false;
             }
             #endregion
 
             #region ok?
+            progressData.label = String.Format("{0}{1} splash change success!", Environment.NewLine, program);
             helpText.Text += Environment.NewLine + "Success";
             return true;
             #endregion
-
         }
         #endregion
 
         #region ProgressBar
-        public (bool show, string title, string label, bool dialog) progressData = (false, "loading", "loading", false);
+        public static progressData progressData = new progressData();
+        ProgressWPF progress = new ProgressWPF();
+        #endregion
 
-        Progress progress = new Progress();
-
-        //System.Threading.Timer frame;
-
-        private void ProgressBar_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        #region About
+        private void AboutButton_Click(object sender, EventArgs e)
         {
-
-            progress = new Progress();
-            progress.Text = progressData.title;
-            progress.label.Text = progressData.label;
-            progress.Show();
-            progress.TopLevel = true;
-            progressData.show = true;
-            progress.Refresh();
-
-            do
-            {
-                bool change = false;
-                //System.Threading.Thread.Sleep(16);
-                Task.Delay(16).Wait();
-                if (progressData.dialog)
-                {
-                    progress.TopMost = false;
-                } else
-                {
-                    progress.TopMost = true;
-                }
-                if (progressData.title != progress.Text)
-                {
-                    progress.Text = progressData.title;
-                    change = true;
-                }
-                if (progressData.label != progress.label.Text)
-                {
-                    progress.label.Text = progressData.label;
-                    change = true;
-                }
-                if (change)
-                {
-                    progress.Invalidate();
-                    progress.Update();
-                    progress.Refresh();
-                }
-
-            } while (progressData.show);
-            progress.Close();
-
+            MessageBox.Show("not yet implemented");
         }
         #endregion
 
+        private void linkMore_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (helpText.Visible)
+            {
+                helpText.Visible = false;
+                MaximumSize = new System.Drawing.Size(99999, 110);
+                MinimumSize = new System.Drawing.Size(400, 110);
+                Height = 110;
+                linkMore.Text = "Show More";
+            } else
+            {
+                helpText.Visible = true;
+                MaximumSize = new System.Drawing.Size(99999, 999999);
+                MinimumSize = new System.Drawing.Size(400, 200);
+                Height = 393;
+                linkMore.Text = "Show Less";
+            }
+        }
     }
+
+    #region progressData
+    public class progressData
+    {
+        #region NO NULL!!!!!!
+        public progressData()
+        {
+            Change += Bruh;
+        }
+
+        public void Bruh(object sender, EventArgs e)
+        {
+            //do fuck all (basically a catch all)
+        }
+        #endregion
+
+        #region EVENT
+        public event EventHandler Change;
+        #endregion
+
+        #region VARIABLE
+        private (bool show, string title, string label, bool dialog) _progressData = (false, "loading", "loading", false);
+        #endregion
+
+        #region GET/SETS
+        public bool show
+        {
+            get
+            {
+                return _progressData.show;
+            }
+
+            set
+            {
+                _progressData.show = value;
+                Change(this, EventArgs.Empty);
+            }
+        }
+        public string title
+        {
+            get
+            {
+                return _progressData.title;
+            }
+
+            set
+            {
+                _progressData.title = value;
+                Change(this, EventArgs.Empty);
+            }
+        }
+        public string label
+        {
+            get
+            {
+                return _progressData.label;
+            }
+
+            set
+            {
+                _progressData.label = value;
+                Change(this, EventArgs.Empty);
+            }
+        }
+        public bool dialog
+        {
+            get
+            {
+                return _progressData.dialog;
+            }
+
+            set
+            {
+                _progressData.dialog = value;
+                Change(this, EventArgs.Empty);
+            }
+        }
+        #endregion
+    }
+    #endregion
 }

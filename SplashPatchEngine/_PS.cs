@@ -10,7 +10,9 @@ namespace SplashPatchEngine
     internal class PS
     {
         #region set DEFAULT STRINGS
-        public static string directory = "Adobe Photoshop *";
+        public static (string display, string full, string shorten) name = ("Photoshop", "Adobe Photoshop", "PS");
+        public static string helpText = string.Format("Requires patch of 3 files{0}\"IconResources.idx\"{0}\"PSIconsHighRes.dat\"{0}\"PSIconsLowRes.dat\"{0}With the 2 versions of Splash1080Background_s0.png{0}{0}LOW @ (750x500){0}HIGH @ (1500x1000){0}as well as a modification to \"SplashBoxTextBackground\" in \"UIColors.txt\" so text does not have a white background", Environment.NewLine);
+        public static string directory = string.Format("{0} *", name.full);
         public static string[] files = { "\\Required\\UiColors.txt", "\\Resources\\IconResources.idx", "\\Resources\\PSIconsHighRes.dat", "\\Resources\\PSIconsLowRes.dat" };
         //masks are OMITTED as Photoshop DOES NOT hide it's PNGs in .exe or .dll s, instead it's in a proprietary archive that must be extracted in a completely different manor!
         #endregion

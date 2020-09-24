@@ -6,6 +6,18 @@
   
   <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyVersion>0.0.0.1</AssemblyVersion>
+    <FileVersion>0.0.0.1</FileVersion>
+    <NeutralLanguage>en-CA</NeutralLanguage>
+    <Version>0.0.0.1</Version>
+    <Authors>TheOneCode</Authors>
+    <Description>Patch Adobe CC Splash images</Description>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/TheOneTrueCode/SplashPatch/tree/master/SplashPatchEngine</PackageProjectUrl>
+    <PackageIcon>icon.ico</PackageIcon>
+    <RepositoryUrl>https://github.com/TheOneTrueCode/SplashPatch</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
   </PropertyGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -29,6 +41,17 @@
     <Reference Include="PShop">
       <HintPath>C:\Users\TheOneCode\Downloads\dll\PShop.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\SplashPatch\icon.ico">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="C:\Users\TheOneCode\Documents\License.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 

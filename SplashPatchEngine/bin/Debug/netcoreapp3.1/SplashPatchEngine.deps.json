@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "SplashPatchEngine/1.0.0": {
+      "SplashPatchEngine/0.0.0.1": {
         "dependencies": {
           "Microsoft.AspNetCore.StaticFiles": "2.2.0",
           "System.Drawing.Common": "4.7.0",
@@ -257,7 +257,7 @@
     }
   },
   "libraries": {
-    "SplashPatchEngine/1.0.0": {
+    "SplashPatchEngine/0.0.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

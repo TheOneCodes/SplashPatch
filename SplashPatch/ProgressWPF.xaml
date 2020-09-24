@@ -1,0 +1,12 @@
+﻿<Window x:Class="SplashPatch.ProgressWPF"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="Progress"
+    Height="122" Width="334" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Normal" WindowStyle="SingleBorderWindow" Loaded="Loaded_Form">
+    <Grid>
+        <TextBlock Name="label" FontSize="11" FontFamily="Segoe UI" Margin="10,5,10,0" TextWrapping="Wrap" TextAlignment="Center" Height="44" VerticalAlignment="Top" >Current operation</TextBlock>
+        <ProgressBar Margin="10,61,10,10"
+  IsIndeterminate="True" Height="15" Name="progressBar"/>
+    </Grid>
+</Window>
+

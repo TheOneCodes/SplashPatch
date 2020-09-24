@@ -39,6 +39,7 @@
             this.fileDialog = new System.Windows.Forms.OpenFileDialog();
             this.AboutButton = new System.Windows.Forms.Button();
             this.progressUpdater = new System.ComponentModel.BackgroundWorker();
+            this.linkMore = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // appSelect
@@ -103,11 +104,10 @@
             // 
             // manualCheck
             // 
-            this.manualCheck.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.manualCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.manualCheck.Location = new System.Drawing.Point(94, 325);
             this.manualCheck.Name = "manualCheck";
-            this.manualCheck.Size = new System.Drawing.Size(231, 23);
+            this.manualCheck.Size = new System.Drawing.Size(93, 23);
             this.manualCheck.TabIndex = 4;
             this.manualCheck.Text = "manual path";
             this.manualCheck.UseVisualStyleBackColor = true;
@@ -125,15 +125,28 @@
             this.AboutButton.TabIndex = 5;
             this.AboutButton.Text = "About";
             this.AboutButton.UseVisualStyleBackColor = true;
+            this.AboutButton.Click += new System.EventHandler(this.AboutButton_Click);
             // 
             // progressUpdater
             // 
             this.progressUpdater.WorkerSupportsCancellation = true;
-            this.progressUpdater.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ProgressBar_DoWork);
+            // 
+            // linkMore
+            // 
+            this.linkMore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkMore.Location = new System.Drawing.Point(248, 325);
+            this.linkMore.Name = "linkMore";
+            this.linkMore.Size = new System.Drawing.Size(77, 23);
+            this.linkMore.TabIndex = 6;
+            this.linkMore.TabStop = true;
+            this.linkMore.Text = "Show More";
+            this.linkMore.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.linkMore.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkMore_LinkClicked);
             // 
             // Wizard
             // 
             this.ClientSize = new System.Drawing.Size(418, 360);
+            this.Controls.Add(this.linkMore);
             this.Controls.Add(this.AboutButton);
             this.Controls.Add(this.manualCheck);
             this.Controls.Add(this.helpText);
@@ -144,11 +157,13 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(290, 190);
+            this.MinimumSize = new System.Drawing.Size(375, 190);
             this.Name = "Wizard";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SplashPatch";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Wizard_Closing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Wizard_Closed);
             this.Load += new System.EventHandler(this.Wizard_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -167,6 +182,7 @@
         private System.Windows.Forms.OpenFileDialog fileDialog;
         private System.Windows.Forms.Button AboutButton;
         private System.ComponentModel.BackgroundWorker progressUpdater;
+        private System.Windows.Forms.LinkLabel linkMore;
     }
 }
 
