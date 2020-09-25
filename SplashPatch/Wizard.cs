@@ -27,19 +27,19 @@ namespace SplashPatch
     public partial class Wizard : Form
     {
         #region initialize
-        Form splash = new Splash();
+        SplashWPF splash = new SplashWPF();
         public Wizard()
         {
-            splash.Text = "loading";
+            splash.ChangeWords("loading");
             splash.Show();
             Application.DoEvents();
-            splash.Text = "Checking for EULA Agreement";
+            splash.ChangeWords("Checking for EULA Agreement");
             #region check for EULA
             //Settings.Default.EULA = false;
             //Settings.Default.Save();
             if (Settings.Default.EULA == false)
             {
-                splash.Text = "Please accept the SplashPatch EULA to begin";
+                splash.ChangeWords("Please accept the SplashPatch EULA to begin");
                 var license = new EULA();
                 license.ShowDialog();
                 if (license.DialogResult == DialogResult.OK)
@@ -61,7 +61,7 @@ namespace SplashPatch
             #endregion
 
             #region check for Resource Hacker
-            splash.Text = "Checking for Resource Hacker";
+            splash.ChangeWords("Checking for Resource Hacker");
             if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory + "rh.dll"))
             {
                 var dnl = new ResourceHackerDownload();
@@ -82,7 +82,7 @@ namespace SplashPatch
             }
             #endregion
 
-            splash.Text = "Initializing components";
+            splash.ChangeWords("Initializing components");
             InitializeComponent();
 
             #region populate appSelect
@@ -95,7 +95,7 @@ namespace SplashPatch
             if (Control.ModifierKeys != Keys.Shift)
                 System.Threading.Thread.Sleep(1000);
 
-            splash.Text = "Loading";
+            splash.ChangeWords("Loading");
             helpText.Visible = false;
             Height = 110;
             MaximumSize = new System.Drawing.Size(99999,110);
