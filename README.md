@@ -24,7 +24,7 @@ SplashPatch can change the splash images to whatever image you want, be it your 
 ## Disclaimer
 ***SplashPatch does not nor will it ever modify programs illegally to allow "Hacked" or "Cracked" versions for free, it solely modifies legitimately acquired activated and trial versions.*** SplashPatch does not support beta Creative Cloud releases.
 
-SplashPatch will must at least replace a PNG, modify existing resource archives, to even modifying important `.dll` and `.exe` files required for the programs to launch. Although SplashPatch makes an effort to back up files prior to modification, if failed it may require the program to be reinstalled, ***please remember to backup your copy, this is especially important with slow internet as downloads can take several hours.***
+SplashPatch will at least replace a PNG, modify existing resource archives, or even modify important `.dll` and `.exe` files required for the programs to launch. Although SplashPatch makes an effort to back up files prior to modification, if failed it may require the program to be reinstalled, ***please remember to backup your copy, this is especially important with slow internet as downloads can take several hours.***
 
 ## License
 
